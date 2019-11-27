@@ -1,22 +1,57 @@
-import movie_manager as mm
+import movie_manager as mml
 
 def main():
-    movie_manager_D = {}
+    mm = mml.new_movie_manager()
+
     while True:
         line = input()
-        
-        commands = input.split(" ")
+
+        commands = input().split(" ")
 
         if commands[0] == "RR":
-            commandRR(commands, movie_manager_D)
+            commandRR(commands, mm)
 
-def commandRR(commands, movie_manager_D):
-    name = commands[1]
-    if mm.has_director(movie_manager_D, name):
-        print("Realizador existente.")
-    else:
-        mm.add_director(movie_manager_D, name)
-        print("Realizador registado com sucesso.")
+        if commands[0]=="RA":
+            commandRA(commands, mm)
+
+        if commands[0]=="RF":
+            commandRF(commands, mm)
+
+        if commands[0]=="AA":
+            commandAA(commands, mm)
+
+    def commandRR(commands, mm):
+
+         name = commands[1]
+         if mml.has_director(mm, name):
+             print("Realizador existente.")
+         else:
+             mml.add_director(mm, name)
+             print("Realizador registado com sucesso.")
+
+    def commandRA(commands,mm):
+        name =  commands[1]
+        if mml.has_actor(mm,name):
+            print("Actor existente")
+        else:
+            mm.add_Actor(mm,name)
+            print("Ator registado com sucesso.")
+
+    def commandRF(commands,mm):
+       title = commands[1]
+       director = commands[2]
+       genre = commands[3]
+       if mml.has_movie(mm,title):
+           print("Filme existente")
+       elif 1==1: #realiador in Lista de Realizadores:
+            print("Realizador inexistente")
+       else:
+           mml.add_movie(mm, title, director, genre)
+           print("Filme adcionado com sucesso")
+
+    def commandAA(commands, mm):
+        pass
+
 
 if __name__ == "__main__":
     main()
