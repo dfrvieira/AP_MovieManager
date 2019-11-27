@@ -20,3 +20,4 @@ def commandRR(commands, movie_manager_D):
 
 if __name__ == "__main__":
     main()
+
