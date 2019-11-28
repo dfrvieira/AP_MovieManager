@@ -6,7 +6,10 @@ def main():
     while True:
         line = input()
 
-        commands = input().split(" ")
+        if line == '':    #checks if input is empty line , if so
+            break         #it breaks out of while loop
+
+        commands = line.split(" ")
 
         if commands[0] == "RR":
             commandRR(commands, mm)
@@ -41,12 +44,12 @@ def main():
        title = commands[1]
        director = commands[2]
        genre = commands[3]
-       if mml.has_movie(mm,title):
+       if mm.has_movie(mm,title):
            print("Filme existente")
        elif 1==1: #realiador in Lista de Realizadores:
             print("Realizador inexistente")
        else:
-           mml.add_movie(mm, title, director, genre)
+           mm.add_filme(mm, title, director, genre)
            print("Filme adcionado com sucesso")
 
     def commandAA(commands, mm):
