@@ -30,7 +30,7 @@ def commandRA(commands, mm):
     if mml.has_actor(mm, name):
         print("Ator existente.")
     else:
-        mml.add_ator(mm, name)
+        mml.add_actor(mm, name)
         print("Ator registado com sucesso.")
 
 def commandRF(commands, mm):
@@ -41,10 +41,10 @@ def commandRF(commands, mm):
     if not mml.has_director(mm, director_name):
         print("Realizador inexistente.")
     else:
-        if mml.has_movie(mm, title, director_name):
+        if mml.has_movie(mm, title, director_name, genre):
             print("Filme existente.")
         else:
-            mml.add_movie(mml, title, director_name)
+            mml.add_movie(mml, title, director_name, genre)
             print("Filme adicionado com sucesso")
 
 def commandAA(commands, mm):
@@ -61,7 +61,7 @@ def commandAA(commands, mm):
             if not mml.has_actor(mm, director_name, title, actor_name):
                 print("Actor inexistente")
             else:
-                mml.add_ator(mm, director_name, title, actor_name)
+                mml.add_actor(mm, director_name, title, actor_name)
                 print("Ator adicionado com sucesso")
 
     

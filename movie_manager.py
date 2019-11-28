@@ -11,10 +11,10 @@ def has_director(mm, name):
 def add_director(mm, name):
     pass
 
-def has_ator(mm, name):
+def has_actor(mm, name):
     pass
 
-def add_ator(mm, name):
+def add_actor(mm, name):
     pass
 
 def has_movie(mm, name):
