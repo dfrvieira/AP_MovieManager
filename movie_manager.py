@@ -16,3 +16,9 @@ def has_ator(mm, name):
 
 def add_ator(mm, name):
     pass
+
+def has_movie(mm, name):
+    pass
+
+def add_movie(mm, name):
+    pass
