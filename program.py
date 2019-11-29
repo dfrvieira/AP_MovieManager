@@ -20,6 +20,11 @@ def main():
             commandAA(commands, mm)
         elif commands[0] == "AR":
             commandAR(commands, mm)
+        elif commands[0] == "AS":
+            commandAS(commands, mm)
+        elif commands[0] == "PT":
+            commandPT(commands, mm)
+
 
 def commandRR(commands, mm):
     name = commands[1]
@@ -78,6 +83,22 @@ def commandAR(commands, mm):
     else:
         mml.change_rating(mm, director_name, title, rating)
         print("Rating alterado com sucesso.")
+
+def commandAS(commands, mm):
+    pass
+
+def commandPT(commands, mm):
+    title = commands[1]
+    if not mml.has_movies(mm):
+        print("Sem filmes registados.")
+    elif not mml.has_movie_with_title(mm, title):
+        print("Sem resultados.")
+    else:
+        movies = mml.get_movies_by_title(mm, title)
+        for movie in movies:
+            director_name = movie['director']['name']
+            print(f"{director_name} {title}")
+
 
 if __name__ == "__main__":
     main()
