@@ -19,6 +19,9 @@ def add_actor(mm, name):
 
 def has_director(mm, name):
     for director in mm['directors']:
+        for element in director:
+            if director['name']==name
+            return True
 
 def add_director(mm, name):
     director = {'name': director_name}
