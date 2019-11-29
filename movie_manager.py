@@ -23,3 +23,6 @@ def has_movie(mm, title, director_name):
 def add_movie(mm, title, director_name, genre):
     pass
 
+def change_rating(mm, title, director_name, rating):
+    pass
+
