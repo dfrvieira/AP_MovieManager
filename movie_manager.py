@@ -29,12 +29,20 @@ def add_director(mm, name):
 def has_movie(mm, title, director_name):
     pass
 
-def add_movie(mm, title, director_name, genre):
-    pass
+def add_movie(mm, title, director_name, genre,rating=None):
+    movie = {
+            'title':title,
+            'director':director_name,
+            'genre':genre
+            'rating':rating
+            }
 >>>>>>> 62f4d6ecb9324f9c0f656dbdb3e9279a21230c1f
 
 def change_rating(mm, title, director_name, rating):
-    pass
+    for movie in mm['movies']:
+        for element in movie:
+            if movie['title']==title and movie['director']==director_name:
+                movie['rating']=rating
 
 <<<<<<< HEAD
 def add_actor(mm,name):
