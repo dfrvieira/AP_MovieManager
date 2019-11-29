@@ -51,7 +51,9 @@ def add_actor(mm,name):
     mm['actors'].append(actor)
 =======
 def has_movie_with_title(mm, title):
-    pass
+    for movie in mm['movies']:
+        if movie['title']==title:
+            return True
 >>>>>>> 62f4d6ecb9324f9c0f656dbdb3e9279a21230c1f
 
 def get_movies_by_title(mm, title):
