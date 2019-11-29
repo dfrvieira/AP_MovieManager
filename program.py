@@ -6,6 +6,8 @@ def main():
     while True:
         line = input()
         
+        if line == '':    # checks if input is empty line , if so
+            break         # it breaks out of while loop
         commands = line.split(" ")
 
         if commands[0] == "RR":
@@ -51,7 +53,6 @@ def commandAA(commands, mm):
     title = commands[1]
     director_name = commands[2]
     actor_name = commands[3]
-
     if not mml.has_director(mm, director_name):
         print("Realizador inexistente")
     else:
@@ -64,7 +65,6 @@ def commandAA(commands, mm):
                 mml.add_actor(mm, director_name, title, actor_name)
                 print("Ator adicionado com sucesso")
 
-    
 if __name__ == "__main__":
     main()
 

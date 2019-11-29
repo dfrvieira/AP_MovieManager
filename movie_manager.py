@@ -17,8 +17,9 @@ def has_actor(mm, name):
 def add_actor(mm, name):
     pass
 
-def has_movie(mm, name):
+def has_movie(mm, title, director_name):
     pass
 
-def add_movie(mm, name):
+def add_movie(mm, title, director_name, genre):
     pass
+
