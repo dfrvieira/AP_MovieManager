@@ -11,16 +11,20 @@ def new_movie_manager():
 
 
 def has_director(mm, name):
-    pass
+    if name in mm['']
 
 def add_director(mm, name):
-    pass
+    director = {'name': director_name}
+
+   mm['directors'].append(director)
 
 def has_actor(mm,name):
     pass
 
 def add_actor(mm,name):
-    pass
+    actor = {'name':actor_name}
+
+    mm['actors'].append(actor)
 
 def has_movie(mm,title):
     pass
