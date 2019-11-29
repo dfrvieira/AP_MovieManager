@@ -61,5 +61,8 @@ def get_movies_by_title(mm, title):
                 return output[-13:-2] #removes the unwanted text from the output
 
 def set_description(mm, title, director_name, description):
-    pass
+    for movie in mm['movies']:
+        for element in movie :
+            if movie['title']==title and movie ['director']==director_name:
+                movie['description']= description
 
