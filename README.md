@@ -19,7 +19,7 @@ filme = {
 }
 
 movie_manager = {
-    'realizadores': [realizador],
+    'directors': [realizador],
     'atores': [ator],
     'filmes': [filmes]
 }
