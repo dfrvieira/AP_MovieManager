@@ -11,6 +11,8 @@ def has_actor(mm, name):
         for element in actor:
             if actor['name']==name:
                 return True
+            else:
+                return False
 
 def add_actor(mm,name):
     actor = {'name':actor_name}
@@ -21,8 +23,10 @@ def add_actor(mm,name):
 def has_director(mm, name):
     for director in mm['directors']:
         for element in director:
-            if director['name']==name
-            return True
+            if director['name']==name:
+                return True
+            else :
+                return False
 
 def add_director(mm, name):
     director = {'name': director_name}
@@ -34,8 +38,10 @@ def has_movie(mm, title, director_name):
         for element in movie:
             if movie['title']==title and movie['director']==director_name:
                 return True
+            else:
+                return False
 
-def add_movie(mm, title, director_name, genre,rating=None):
+def add_movie(mm, title, director_name, genre,rating='Por classificar'):
     movie = {
             'title':title,
             'director':director_name,
@@ -55,6 +61,8 @@ def has_movie_with_title(mm, title):
         for element in movie:
             if movie['title']==title:
                 return True
+            else:
+                return False
 
 def get_movies_by_title(mm, title):
     for movie in mm['movies']:
