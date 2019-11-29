@@ -7,7 +7,10 @@ def new_movie_manager():
 
 
 def has_actor(mm, name):
-    pass
+    for actor in mm['actors']:
+        for element in actor:
+            if actor['name']==name:
+                return True
 
 def add_actor(mm,name):
     actor = {'name':actor_name}
