@@ -32,3 +32,6 @@ def has_movie_with_title(mm, title):
 def get_movies_by_title(mm, title):
     pass
 
+def set_description(mm, title, director_name, description):
+    pass
+

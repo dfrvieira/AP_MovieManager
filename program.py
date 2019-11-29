@@ -85,7 +85,16 @@ def commandAR(commands, mm):
         print("Rating alterado com sucesso.")
 
 def commandAS(commands, mm):
-    pass
+    title = commands[1]
+    director_name = commands[2]
+    description = input()
+    if not mml.has_director(mm, director_name):
+        print("Realizador inexistente.")
+    if not mml.has_movie(mm, title, director_name):
+        print("Filme inexistente.")
+    else:
+        mml.set_description(mm, title, director_name, description)
+        print("Sinopse alterada com sucesso.")
 
 def commandPT(commands, mm):
     title = commands[1]
@@ -98,7 +107,6 @@ def commandPT(commands, mm):
         for movie in movies:
             director_name = movie['director']['name']
             print(f"{director_name} {title}")
-
 
 if __name__ == "__main__":
     main()
