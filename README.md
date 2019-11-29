@@ -1,25 +1,26 @@
 # Movie Manager
 
 ## Estrutura dos dicionários
-realizador = {
-    'nome': String
-}
 
-ator = {
-    'nome': String
-}
+        director = {
+            'name': String
+        }
 
-filme = {
-    'titulo': String,
-    'genero': String,
-    'rating': float,
-    'sinopse': String,
-    'realizador': realizador,
-    'atores': [ator]
-}
+        actor = {
+            'name': String
+        }
 
-movie_manager = {
-    'directors': [realizador],
-    'atores': [ator],
-    'filmes': [filmes]
-}
+        movie = {
+            'title': String,
+            'genre': String,
+            'rating': float,
+            'description': String,
+            'director': director,
+            'actors': [actor]
+        }
+
+        movie_manager = {
+            'directors': [director],
+            'actors': [actor],
+            'movies': [movies]
+        }
