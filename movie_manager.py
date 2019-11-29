@@ -49,6 +49,7 @@ def add_actor(mm,name):
     actor = {'name':actor_name}
 
     mm['actors'].append(actor)
+
 def has_movie_with_title(mm, title):
     for movie in mm['movies']:
         for element in movie:
@@ -56,8 +57,11 @@ def has_movie_with_title(mm, title):
                 return True
 
 def get_movies_by_title(mm, title):
-    pass
-
+    for movie in mm['movies']:
+        for element in movie:
+            if movie['title']==title:
+                output=str(movie.values())
+                return output[-13:-2] #removes the unwanted text from the output
 def set_description(mm, title, director_name, description):
     pass
 
