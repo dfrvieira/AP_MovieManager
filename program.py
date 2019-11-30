@@ -6,7 +6,7 @@ def main():
     while True:
         line = input()
         
-        if line == '':    # checks if input is empty line , if so
+        if not line:      # checks if input is empty line , if so
             break         # it breaks out of while loop
         commands = line.split(" ")
 
