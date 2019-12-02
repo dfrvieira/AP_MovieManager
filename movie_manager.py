@@ -14,61 +14,61 @@ def has_actor(mm, name):
 
 def add_actor(mm,name):
     actor = {'name':actor_name}
-
     mm['actors'].append(actor)
-
 
 def has_director(mm, name):
     for director in mm['directors']:
-        for element in director:
-            if director['name']==name:
-                return True
+        if director['name']==name:
+            return True
     return False
+
+def get_director(mm, name):
+    for director in mm['directors']:
+        if director['name'] == name:
+            return director
+    return None
 
 def add_director(mm, name):
     director = {'name': director_name}
-
-   mm['directors'].append(director)
+    mm['directors'].append(director)
 
 def has_movie(mm, title, director_name):
     for movie in mm['movies']:
-        for element in movie:
-            if movie['title']==title and movie['director']==director_name:
-                return True
+        if movie['title']==title and movie['director']==director_name:
+            return True
     return False
 
-def add_movie(mm, title, director_name, genre,rating='Por classificar'):
+def add_movie(mm, title, director_name, genre, rating=0.0):
+    director = get_director(mm, director_name)
     movie = {
-            'title':title,
-            'director':director_name,
-            'genre':genre
-            'rating':rating
-            }
+        'title':title,
+        'director':director,
+        'genre':genre
+        'rating':rating
+    }
     mm['movies'].append(movie)
 
 def change_rating(mm, title, director_name, rating):
     for movie in mm['movies']:
-        for element in movie:
-            if movie['title']==title and movie['director']==director_name:
-                movie['rating']=rating
+        if movie['title']==title and movie['director']==director_name:
+            movie['rating']=rating
 
 def has_movie_with_title(mm, title):
     for movie in mm['movies']:
-        for element in movie:
-            if movie['title']==title:
-                return True
+        if movie['title']==title:
+            return True
     return False
 
 def get_movies_by_title(mm, title):
+    result = []
     for movie in mm['movies']:
-        for element in movie:
-            if movie['title']==title:
-                output=str(movie.values())
-                return output[-13:-2] #removes the unwanted text from the output
+        if movie['title']==title:
+            result.append(movie)
+    return result
 
 def set_description(mm, title, director_name, description):
     for movie in mm['movies']:
-        for element in movie :
-            if movie['title']==title and movie ['director']==director_name:
-                movie['description']= description
+        if movie['title']==title and movie['director']==director_name:
+            movie['description'] = description
+            break
 
