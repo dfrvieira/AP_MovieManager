@@ -5,7 +5,6 @@ def main():
 
     while True:
         line = input()
-        
         if not line:      # checks if input is empty line , if so
             break         # it breaks out of while loop
         commands = line.split(" ")
@@ -27,7 +26,6 @@ def main():
         elif commands[0] == "PG":
             commandPG(commands, mm)
 
-
 def commandRR(commands, mm):
     name = commands[1]
     if mml.has_director(mm, name):
@@ -35,7 +33,7 @@ def commandRR(commands, mm):
     else:
         mml.add_director(mm, name)
         print("Realizador registado com sucesso.")
- 
+
 def commandRA(commands, mm):
     name = commands[1]
     if mml.has_actor(mm, name):
@@ -126,4 +124,4 @@ def commandPG(commands, mm):
 if __name__ == "__main__":
     main()
 
- 
+
