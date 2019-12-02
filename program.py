@@ -2,7 +2,7 @@ import movie_manager as mml
 
 def main():
     mm = mml.new_movie_manager()
-
+#Hi
     while True:
         line = input()
         if not line:      # checks if input is empty line , if so
