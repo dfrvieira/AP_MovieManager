@@ -2,7 +2,6 @@ import movie_manager as mml
 
 def main():
     mm = mml.new_movie_manager()
-
     while True:
         line = input()
         if not line:      # checks if input is empty line , if so
@@ -132,7 +131,7 @@ def commandPA(commands, mm):
     elif not mml.has_movie_with_actor(mm, actor_name):
         print("Sem resultados")
     else:
-        movies = mml.get_movies_by_actor(mm, actor_name):
+        movies = mml.get_movies_by_actor(mm, actor_name)
         for movie in movies:
             director_name =['director']['name']
             title = movie['title']
