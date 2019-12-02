@@ -132,7 +132,7 @@ def commandPA(commands, mm):
     elif not mml.has_movie_with_actor(mm, actor_name):
         print("Sem resultados")
     else:
-        movies = mml.get_movies_by_actor(mm, actor_name):
+        movies = mml.get_movies_by_actor(mm, actor_name)
         for movie in movies:
             director_name =['director']['name']
             title = movie['title']
