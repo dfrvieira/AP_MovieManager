@@ -71,4 +71,8 @@ def set_description(mm, title, director_name, description):
         if movie['title']==title and movie['director']==director_name:
             movie['description'] = description
             break
+def has_movie_with_genre(mm, genre):
+    pass
 
+def get_movies_by_genre(mm, genre):
+    pass
