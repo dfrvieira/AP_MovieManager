@@ -5,7 +5,6 @@ def new_movie_manager():
         'movies': []
     }
 
-
 def has_actor(mm, name):
     for actor in mm['actors']:
         if actor['name']==name:
@@ -13,7 +12,9 @@ def has_actor(mm, name):
     return False
 
 def add_actor(mm,name):
-    actor = {'name':actor_name}
+    actor = {
+        'name': name
+    }
     mm['actors'].append(actor)
 
 def has_director(mm, name):
@@ -29,7 +30,9 @@ def get_director(mm, name):
     return None
 
 def add_director(mm, name):
-    director = {'name': director_name}
+    director = {
+        'name': name
+    }
     mm['directors'].append(director)
 
 def has_movie(mm, title, director_name):
@@ -41,10 +44,10 @@ def has_movie(mm, title, director_name):
 def add_movie(mm, title, director_name, genre, rating=0.0):
     director = get_director(mm, director_name)
     movie = {
-        'title':title,
-        'director':director,
-        'genre':genre
-        'rating':rating
+        'title': title,
+        'director': director,
+        'genre': genre,
+        'rating': rating
     }
     mm['movies'].append(movie)
 
@@ -71,6 +74,7 @@ def set_description(mm, title, director_name, description):
         if movie['title']==title and movie['director']==director_name:
             movie['description'] = description
             break
+
 def has_movie_with_genre(mm, genre):
     pass
 
