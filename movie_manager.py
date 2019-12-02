@@ -88,3 +88,9 @@ def get_movies_by_genre(mm, genre):
         if movie['genre'] == genre:
             result.append(movie)
     return result
+
+def has_movie_with_actor_name(mm, actor_name):
+    pass
+
+def get_movie_by_actor_name(mm, actor_name):
+    pass
