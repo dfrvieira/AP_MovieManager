@@ -24,6 +24,8 @@ def main():
             commandAS(commands, mm)
         elif commands[0] == "PT":
             commandPT(commands, mm)
+        elif commands[0] == "PG":
+            commandPG(commands, mm)
 
 
 def commandRR(commands, mm):
@@ -102,10 +104,23 @@ def commandPT(commands, mm):
         print("Sem filmes registados.")
     elif not mml.has_movie_with_title(mm, title):
         print("Sem resultados.")
-    else:
+    else: 
         movies = mml.get_movies_by_title(mm, title)
         for movie in movies:
             director_name = movie['director']['name']
+            print(f"{director_name} {title}")
+
+def commandPG(commands, mm):
+    genre = commands[1]
+    if not mml.has_movies(mm):
+        print("Sem filmes registados.")
+    elif not mml.has_movie_with_genre(mm, genre):
+        print("Sem resultados.")
+    else:
+        movies = mml.get_movies_by_genre(mm, genre)
+        for movie in movies:
+            director_name = movie['director']['name']
+            title = movie['title']
             print(f"{director_name} {title}")
 
 if __name__ == "__main__":
