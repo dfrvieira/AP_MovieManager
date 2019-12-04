@@ -148,7 +148,7 @@ def commandPR(commands, mm):
     elif not mml.has_movie_by_director(mm, director_name):
         print("Sem resultados")
     else:
-        movies = mml.get_movies_by_director(mm, director)
+        movies = mml.get_movies_by_director(mm, director_name)
         for movie in movies:
             director_name =['director']['name']
             title = movie['title']

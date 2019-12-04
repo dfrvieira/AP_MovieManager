@@ -78,14 +78,14 @@ def set_description(mm, title, director_name, description):
             break
 
 def has_movie_with_genre(mm, genre):
-    for movie in mm['movie']:
+    for movie in mm['movies']:
         if movie['genre'] == genre:
             return True
     return False
 
 def get_movies_by_genre(mm, genre):
     result = []
-    for movie in mm['movie']:
+    for movie in mm['movies']:
         if movie['genre'] == genre:
             result.append(movie)
     return result
