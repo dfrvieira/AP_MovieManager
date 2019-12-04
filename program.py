@@ -53,7 +53,7 @@ def commandRF(commands, mm):
     if not mml.has_director(mm, director_name):
         print("Realizador inexistente.")
     else:
-        if mml.has_movie(mm, title, director_name, genre):
+        if mml.has_movie(mm, title, director_name):
             print("Filme existente.")
         else:
             mml.add_movie(mml, title, director_name, genre)
