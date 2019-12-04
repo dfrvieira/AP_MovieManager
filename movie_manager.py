@@ -90,13 +90,21 @@ def get_movies_by_genre(mm, genre):
     return result
 
 def has_movie_with_actor(mm, actor_name):
-    pass
+    for movie in mm['movies']:
+        if movie ['']
 
 def get_movies_with_actor(mm, actor_name):
     pass
 
 def has_movie_by_director(mm, director_name):
-    pass
+    for movie in mm['movies']:
+        if movie['director']==director_name:
+            return True
+    return False
 
 def get_movies_by_director(mm, director_name):
-    pass
+    result =[]
+    for movie in mm['movies']:
+        if movie['director']==director_name:
+            result.append(movie)
+    return result
