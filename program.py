@@ -30,19 +30,19 @@ def main():
             commandPR(commands, mm)
 
 def commandRR(commands, mm):
-    name = commands[1]
-    if mml.has_director(mm, name):
+    director_name = commands[1]
+    if mml.has_director(mm, director_name):
         print("Realizador existente.")
     else:
-        mml.add_director(mm, name)
+        mml.add_director(mm, director_name)
         print("Realizador registado com sucesso.")
 
 def commandRA(commands, mm):
-    name = commands[1]
-    if mml.has_actor(mm, name):
+    actor_name = commands[1]
+    if mml.has_actor(mm, actor_name):
         print("Ator existente.")
     else:
-        mml.add_actor(mm, name)
+        mml.add_actor(mm, actor_name)
         print("Ator registado com sucesso.")
 
 def commandRF(commands, mm):
@@ -72,7 +72,7 @@ def commandAA(commands, mm):
             if not mml.has_actor(mm, director_name, title, actor_name):
                 print("Actor inexistente")
             else:
-                mml.add_actor(mm, director_name, title, actor_name)
+                mml.add_actor_to_movie(mm, actor_name, title, director_name)
                 print("Ator adicionado com sucesso")
 
 def commandAR(commands, mm):
