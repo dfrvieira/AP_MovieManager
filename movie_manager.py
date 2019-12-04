@@ -47,7 +47,8 @@ def add_movie(mm, title, director_name, genre, rating=0.0):
         'title': title,
         'director': director,
         'genre': genre,
-        'rating': rating
+        'rating': rating,
+        'actors': []
     }
     mm['movies'].append(movie)
 
@@ -90,10 +91,19 @@ def get_movies_by_genre(mm, genre):
     return result
 
 def has_movie_with_actor(mm, actor_name):
-    pass
+    for movie in mm['movies']:
+        for actor in movie['actors']:
+            if actor['name'] == actor_name:
+                return True
+    return False
 
 def get_movies_with_actor(mm, actor_name):
-    pass
+    result = []
+    for movie in mm['movies']:
+        for actor in movie['actors']:
+            if actor['name'] == actor_name:
+                result.append(movie)
+    return result
 
 def has_movie_by_director(mm, director_name):
     pass
