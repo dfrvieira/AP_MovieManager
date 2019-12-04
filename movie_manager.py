@@ -48,6 +48,7 @@ def add_movie(mm, title, director_name, genre, rating=0.0):
         'director': director,
         'genre': genre,
         'rating': rating
+        'actors':[]
     }
     mm['movies'].append(movie)
 
