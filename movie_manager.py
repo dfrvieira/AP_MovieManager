@@ -92,5 +92,11 @@ def get_movies_by_genre(mm, genre):
 def has_movie_with_actor(mm, actor_name):
     pass
 
-def get_movies_by_actor(mm, actor_name):
+def get_movies_with_actor(mm, actor_name):
+    pass
+
+def has_movie_by_director(mm, director_name):
+    pass
+
+def get_movies_by_director(mm, director_name):
     pass
