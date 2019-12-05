@@ -28,6 +28,8 @@ def main():
             commandPA(commands, mm)
         elif commands[0] == "PR":
             commandPR(commands, mm)
+        else:
+            print("Instrução inválida.")
 
 def commandRR(commands, mm):
     director_name = commands[1]
