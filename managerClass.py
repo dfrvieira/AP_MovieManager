@@ -81,6 +81,12 @@ class MovieManager:
             if actor.name == name:
                 return actor
 
+    def get_movie_by_genre(self,genre):
+        movie_list=[]
+        for movie in self.movies:
+            if movie.get_genre() == genre:
+                movie_list.append(movie)
+
     def add_actor(self, actor):
         self.actors.append(actor)
 
