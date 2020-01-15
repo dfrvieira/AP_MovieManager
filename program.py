@@ -56,7 +56,7 @@ def commandRF(commands, mm):
         if mml.has_movie(mm, title, director_name, genre):
             print("Filme existente.")
         else:
-            mml.add_movie(mml, title, director_name, genre)
+            mml.add_movie(mm, title, director_name, genre)
             print("Filme adicionado com sucesso")
 
 def commandAA(commands, mm):
@@ -105,7 +105,7 @@ def commandPT(commands, mm):
         print("Sem filmes registados.")
     elif not mml.has_movie_with_title(mm, title):
         print("Sem resultados.")
-    else: 
+    else:
         movies = mml.get_movies_by_title(mm, title)
         for movie in movies:
             director_name = movie['director']['name']
