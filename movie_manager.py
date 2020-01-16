@@ -62,7 +62,7 @@ class MovieManager:
         for director in self.directors:
             if director.get_name() == director_name:
                 return True
-    
+
     def get_directors(self):
         return self.directors
 
@@ -76,12 +76,12 @@ class MovieManager:
 
     def has_movie(self,movie_titulo):
         for movie in self.movies:
-            if movie.get_titulo == movie_titulo:
+            if movie.get_titulo() == movie_titulo:
                 return True
 
     def get_actor(self,name):
         for actor in self.actors:
-            if actor.name == name:
+            if actor.get_name() == name:
                 return actor
 
     def get_movie_by_genre(self,genre):
@@ -100,7 +100,7 @@ class MovieManager:
 
     def get_movie(self,movie_title):
         for movie in self.movies:
-            if movie.titulo == movie_title:
+            if movie.get_titulo() == movie_title:
                 return movie
 
     def add_actor_to_movie(self, actor_name, movie_title):
