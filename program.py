@@ -107,7 +107,7 @@ def commandPT(commands, mm):
         print("Sem filmes registados.")
     elif not mml.has_movie_with_title(mm, title):
         print("Sem resultados.")
-    else: 
+    else:
         movies = mml.get_movies_by_title(mm, title)
         for movie in movies:
             director_name = movie['director']['name']
