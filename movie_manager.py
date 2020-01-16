@@ -108,9 +108,26 @@ class MovieManager:
         movie = self.get_movie(movie_title)
         movie.add_actor(actor)
 
-    def has_movie_with_actor(self,actor_name):
+    def has_movie_with_actor(self, actor_name):
         for movie in self.movies:
             for actor in movie.get_actors():
                 if actor_name in actor:
                     return movie.titulo
+
+    def has_movie_by_director(self, director_name):
+        for movie in self.movies:
+            if movie.get_director().get_name() == director_name:
+                return movie
+
+    def get_movies_with_actor(self, actor_name):
+        result = []
+        for movie in self.movies:
+            for actor in movie.get_actors():
+                if actor.get_name() == actor_name:
+                    result.append(movie)
+        return result
+
+
+
+
 
