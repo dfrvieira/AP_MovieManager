@@ -1,119 +1,116 @@
-def new_movie_manager():
-    return {
-        'directors': [],
-        'actors': [],
-        'movies': []
-    }
+class Movie:
+    def __init__(self, titulo, director, genre, ratting=None, description=None):
+        self.titulo = titulo
+        self.director= director
+        self.genre = genre
+        self.ratting = ratting
+        self.actors = []
+        self.description = description
 
-def has_actor(mm, name):
-    for actor in mm['actors']:
-        if actor['name'] == name:
-            return True
-    return False
+    def get_titulo(self):
+        return self.titulo
 
-def add_actor(mm,name):
-    actor = {
-        'name': name
-    }
-    mm['actors'].append(actor)
+    def get_ratting(self):
+        return self.ratting
 
-def has_director(mm, name):
-    for director in mm['directors']:
-        if director['name'] == name:
-            return True
-    return False
+    def get_genre(self):
+        return self.genre
 
-def get_director(mm, name):
-    for director in mm['directors']:
-        if director['name'] == name:
-            return director
-    return None
+    def get_description(self):
+        return self.description
 
-def add_director(mm, name):
-    director = {
-        'name': name
-    }
-    mm['directors'].append(director)
+    def get_director(self):
+        return self.director
 
-def has_movie(mm, title, director_name):
-    for movie in mm['movies']:
-        if movie['title'] == title and movie['director'] == director_name:
-            return True
-    return False
+    def get_actors(self):
+        return self.actors #returns a list
 
-def add_movie(mm, title, director_name, genre, rating=0.0):
-    director = get_director(mm, director_name)
-    movie = {
-        'title': title,
-        'director': director,
-        'genre': genre,
-        'rating': rating,
-        'actors': []
-    }
-    mm['movies'].append(movie)
+    def set_actor(self, actor):
+        self.actors.append(actor)
 
-def change_rating(mm, title, director_name, rating):
-    for movie in mm['movies']:
-        if movie['title'] == title and movie['director'] == director_name:
-            movie['rating'] = rating
-            break
+    def set_description(self,description):
+        self.description = description
 
-def has_movie_with_title(mm, title):
-    for movie in mm['movies']:
-        if movie['title'] == title:
-            return True
-    return False
+    def set_ratting(self,ratting):
+        self.ratting = ratting
 
-def get_movies_by_title(mm, title):
-    result = []
-    for movie in mm['movies']:
-        if movie['title'] == title:
-            result.append(movie)
-    return result
+    def add_actor(self,actor):
+        self.actors.append(actor)
 
-def set_description(mm, title, director_name, description):
-    for movie in mm['movies']:
-        if movie['title'] == title and movie['director'] == director_name:
-            movie['description'] = description
-            break
+class Person:
+    def __init__(self, name):
+        self.name = name
 
-def has_movie_with_genre(mm, genre):
-    for movie in mm['movies']:
-        if movie['genre'] == genre:
-            return True
-    return False
+    def get_name(self):
+        return self.name
 
-def get_movies_by_genre(mm, genre):
-    result = []
-    for movie in mm['movies']:
-        if movie['genre'] == genre:
-            result.append(movie)
-    return result
+class Actor(Person):
+    def __init__(self,name):
+        Person.__init__(self, name)
 
-def has_movie_with_actor(mm, actor_name):
-    for movie in mm['movies']:
-        for actor in movie['actors']:
-            if actor['name'] == actor_name:
+class Director(Person):
+    def __init__(self,name):
+        Person.__init__(self, name)
+
+class MovieManager:
+    def __init__(self):
+        self.movies = []
+        self.actors = []
+        self.directors = []
+
+    def has_director(self, director_name):
+        for director in self.directors:
+            if director.get_name() == director_name:
                 return True
-    return False
+    
+    def get_directors(self):
+        return self.directors
 
-def get_movies_with_actor(mm, actor_name):
-    result = []
-    for movie in mm['movies']:
-        for actor in movie['actors']:
-            if actor['name'] == actor_name:
-                result.append(movie)
-    return result
+    def has_actor(self, actor_name):
+        for actor in self.actors:
+            if actor.get_name() == actor_name:
+                return True
 
-def has_movie_by_director(mm, director_name):
-    for movie in mm['movies']:
-        if movie['director']['name'] == director_name:
-            return True
-    return False
+    def add_movie(self,movie):
+        self.movies.append(movie)
 
-def get_movies_by_director(mm, director_name):
-    result = []
-    for movie in mm['movies']:
-        if movie['director']['name'] == director_name:
-            result.append(movie)
-    return result
+    def has_movie(self,movie_titulo):
+        for movie in self.movies:
+            if movie.get_titulo == movie_titulo:
+                return True
+
+    def get_actor(self,name):
+        for actor in self.actors:
+            if actor.name == name:
+                return actor
+
+    def get_movie_by_genre(self,genre):
+        movie_list=[]
+        for movie in self.movies:
+            if movie.get_genre() == genre:
+                movie_list.append(movie)
+
+    def add_actor(self, actor_name):
+        actor = Actor(actor_name)
+        self.actors.append(actor)
+
+    def add_director(self, director_name):
+        director = Director(director_name)
+        self.directors.append(director)
+
+    def get_movie(self,movie_title):
+        for movie in self.movies:
+            if movie.titulo == movie_title:
+                return movie
+
+    def add_actor_to_movie(self, actor_name, movie_title):
+        actor = self.get_actor(actor_name)
+        movie = self.get_movie(movie_title)
+        movie.add_actor(actor)
+
+    def has_movie_with_actor(self,actor_name):
+        for movie in self.movies:
+            for actor in movie.get_actors():
+                if actor_name in actor:
+                    return movie.titulo
+
