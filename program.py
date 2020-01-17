@@ -1,7 +1,7 @@
-import movie_manager as mml
+from movie_manager import MovieManager
 
 def main():
-    mm = mml.new_movie_manager()
+    mm = MovieManager()
     while True:
         line = input()
         if not line:      # checks if input is empty line , if so
@@ -33,10 +33,12 @@ def main():
 
 def commandRR(commands, mm):
     director_name = commands[1]
-    if mml.has_director(mm, director_name):
+    if mm.has_director(director_name):
+    # if mml.has_director(mm, director_name):
         print("Realizador existente.")
     else:
-        mml.add_director(mm, director_name)
+        mm.add_director(director_name)
+        # mml.add_director(mm, director_name)
         print("Realizador registado com sucesso.")
 
 def commandRA(commands, mm):
