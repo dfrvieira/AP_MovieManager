@@ -1,7 +1,7 @@
-from movie_manager import MovieManager
+import movie_manager as m_m
 
 def main():
-    mm = MovieManager()
+    mm = m_m.MovieManager()
     while True:
         line = input()
         if not line:      # checks if input is empty line , if so
@@ -41,10 +41,10 @@ def commandRR(commands, mm):
 
 def commandRA(commands, mm):
     actor_name = commands[1]
-    if mml.has_actor(mm, actor_name):
+    if mm.has_actor(actor_name):
         print("Ator existente.")
     else:
-        mml.add_actor(mm, actor_name)
+        mm.add_actor(actor_name)
         print("Ator registado com sucesso.")
 
 def commandRF(commands, mm):
@@ -52,108 +52,110 @@ def commandRF(commands, mm):
     director_name = commands[2]
     genre = commands[3]
 
-    if not mml.has_director(mm, director_name):
+    if not mm.has_director(director_name):
         print("Realizador inexistente.")
     else:
-        if mml.has_movie(mm, title, director_name):
+        if mm.has_movie(title,director_name):
             print("Filme existente.")
         else:
-            mml.add_movie(mm, title, director_name, genre)
+            filme = m_m.Movie(title, director_name, genre)
+            mm.add_movie(filme)
             print("Filme adicionado com sucesso")
 
-def commandAA(commands, mm):
+def commandAA(commands,mm):
     title = commands[1]
     director_name = commands[2]
     actor_name = commands[3]
-    if not mml.has_director(mm, director_name):
+
+    if not mm.has_director(director_name):
         print("Realizador inexistente")
     else:
-        if not mml.has_movie(mm, director_name, title):
+        if not mm.has_movie(title, director_name):
             print("Filme inexistente")
         else:
-            if not mml.has_actor(mm, director_name, title, actor_name):
+            if not mm.has_actor(actor_name):
                 print("Actor inexistente")
             else:
-                mml.add_actor_to_movie(mm, actor_name, title, director_name)
+                mm.add_actor_to_movie(actor_name, title, director_name)
                 print("Ator adicionado com sucesso")
 
 def commandAR(commands, mm):
     title = commands[1]
     director_name = commands[2]
     rating = commands[3]
-    if not mml.has_director(mm, director_name):
+    if not mm.has_director(director_name):
         print("Realizador inexistente.")
-    elif not mml.has_movie(mm, title, director_name):
+    elif not mm.has_movie(title, director_name):
         print("Filme inexistente.")
     else:
-        mml.change_rating(mm, director_name, title, rating)
+        mm.change_rating(title, director_name, rating)
         print("Rating alterado com sucesso.")
 
 def commandAS(commands, mm):
     title = commands[1]
     director_name = commands[2]
-    description = input()
-    if not mml.has_director(mm, director_name):
+    description = input('Sinopse: ')
+    if not mm.has_director(director_name):
         print("Realizador inexistente.")
-    if not mml.has_movie(mm, title, director_name):
+    if not mm.has_movie(title, director_name):
         print("Filme inexistente.")
     else:
-        mml.set_description(mm, title, director_name, description)
+        mm.set_description(title, director_name, description)
         print("Sinopse alterada com sucesso.")
 
 def commandPT(commands, mm):
     title = commands[1]
-    if not mml.has_movies(mm):
+    if not mm.has_movies():
         print("Sem filmes registados.")
-    elif not mml.has_movie_with_title(mm, title):
+    elif not mm.has_movie_with_title(title):
         print("Sem resultados.")
     else:
-        movies = mml.get_movies_by_title(mm, title)
+        movies = mm.get_movies_by_title(title)
         for movie in movies:
-            director_name = movie['director']['name']
+            director_name = movie.get_director()
             print(f"{director_name} {title}")
 
 def commandPG(commands, mm):
     genre = commands[1]
-    if not mml.has_movies(mm):
+    if not mm.has_movies():
         print("Sem filmes registados.")
-    elif not mml.has_movie_with_genre(mm, genre):
+    elif not mm.has_movie_with_genre(genre):
         print("Sem resultados.")
     else:
-        movies = mml.get_movies_by_genre(mm, genre)
+        movies = mm.get_movies_by_genre(genre)
         for movie in movies:
-            director_name = movie['director']['name']
-            title = movie['title']
+            director_name = movie.get_director()
+            title = movie.get_titulo()
             print(f"{director_name} {title}")
 
 def commandPA(commands, mm):
     actor_name = commands[1]
-    if not mml.has_movies(mm):
+    if not mm.has_movies():
         print ("Sem filmes registados")
-    elif not mml.has_actor(mm, actor_name):
+    elif not mm.has_actor(actor_name):
         print("Ator inexistente")
-    elif not mml.has_movie_with_actor(mm, actor_name):
+    elif not mm.has_movie_with_actor(actor_name):
         print("Sem resultados")
     else:
-        movies = mml.get_movies_with_actor(mm, actor_name)
+        movies = mm.get_movies_with_actor(actor_name)
         for movie in movies:
-            director_name =['director']['name']
-            title = movie['title']
+            director_name = movie.get_director()
+            title = movie.get_titulo()
             print(f"{director_name} {title}")
 
 def commandPR(commands, mm):
     director_name = commands[1]
-    if not mml.has_movies(mm):
+    if not mm.has_movies():
         print ("Sem filmes registados")
-    elif not mml.has_director(mm, director_name):
+    elif not mm.has_director(director_name):
         print("Realizador inexistente")
-    elif not mml.has_movie_by_director(mm, director_name):
+    elif not mm.has_movie_by_director(director_name):
         print("Sem resultados")
     else:
-        movies = mml.get_movies_by_director(mm, director_name)
+        movies = mm.get_movies_by_director(director_name)
         for movie in movies:
-            director_name =['director']['name']
-            title = movie['title']
+            director_name = movie.get_director()
+            title = movie.get_titulo()
             print(f"{director_name} {title}")
 
 if __name__ == "__main__":

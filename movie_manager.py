@@ -66,6 +66,9 @@ class MovieManager:
     def get_directors(self):
         return self.directors
 
+    def get_movies(self):
+        return self.movies
+
     def has_actor(self, actor_name):
         for actor in self.actors:
             if actor.get_name() == actor_name:
@@ -74,21 +77,14 @@ class MovieManager:
     def add_movie(self,movie):
         self.movies.append(movie)
 
-    def has_movie(self,movie_titulo):
-        for movie in self.movies:
-            if movie.get_titulo() == movie_titulo:
-                return True
+    def has_movies(self):
+        if len(self.movies) != 0:
+            return True
 
     def get_actor(self,name):
         for actor in self.actors:
             if actor.get_name() == name:
                 return actor
-
-    def get_movie_by_genre(self,genre):
-        movie_list=[]
-        for movie in self.movies:
-            if movie.get_genre() == genre:
-                movie_list.append(movie)
 
     def add_actor(self, actor_name):
         actor = Actor(actor_name)
@@ -103,30 +99,82 @@ class MovieManager:
             if movie.get_titulo() == movie_title:
                 return movie
 
-    def add_actor_to_movie(self, actor_name, movie_title):
-        actor = self.get_actor(actor_name)
-        movie = self.get_movie(movie_title)
-        movie.add_actor(actor)
+    def add_actor_to_movie(self, actor_name, movie_title, director_name):
+        for movie in self.movies:
+            if movie.get_titulo() == movie_title and movie.get_director() == director_name:
+                for actor in self.actors:
+                    if actor.get_name() == actor_name:
+                        movie.add_actor(actor)
 
     def has_movie_with_actor(self, actor_name):
         for movie in self.movies:
             for actor in movie.get_actors():
-                if actor_name in actor:
-                    return movie.titulo
+                if actor_name == actor.get_name():
+                    return True
+
+    def get_movies_with_actor(self, actor_name):
+        movie_list = []
+        for movie in self.movies:
+            for actor in movie.get_actors():
+                if actor_name == actor.get_name():
+                    movie_list.append(movie)
+        return movie_list
+
+    def has_movie(self, titulo, director_name):
+        for movie in self.movies:
+            if movie.get_titulo() == titulo and movie.get_director() == director_name:
+                return True
+        return False
+
+    def change_rating(self, titulo , director_name, ratting):
+        for movie in self.movies:
+            if movie.get_titulo() == titulo and movie.get_director() == director_name:
+                movie.set_ratting(ratting)
+
+    def has_movie_with_title(self, titulo):
+        for movie in self.movies:
+            if movie.get_titulo() == titulo:
+                return True
+        return False
 
     def has_movie_by_director(self, director_name):
         for movie in self.movies:
-            if movie.get_director().get_name() == director_name:
-                return movie
+            if movie.get_director() == director_name:
+                return True
+        return False
 
-    def get_movies_with_actor(self, actor_name):
-        result = []
+    def get_movies_by_director(self, director_name):
+        movie_list = []
         for movie in self.movies:
-            for actor in movie.get_actors():
-                if actor.get_name() == actor_name:
-                    result.append(movie)
-        return result
+            if movie.get_director() == director_name:
+                movie_list.append(movie)
+        return movie_list
 
+    def get_movies_by_title(self, titulo):
+        movies = []
+        for movie in self.movies:
+            if movie.get_titulo() == titulo:
+                movies.append(movie)
+        return movies
+
+
+    def set_description(self, titulo, director_name, description):
+        for movie in self.movies:
+            if movie.get_titulo() == titulo and movie.get_director() == director_name:
+                movie.set_description(description)
+
+    def get_movies_by_genre(self, genre):
+        movie_list=[]
+        for movie in self.movies:
+            if movie.get_genre() == genre:
+                movie_list.append(movie)
+        return movie_list
+
+    def has_movie_with_genre(self, genre):
+        for movie in self.movies:
+            if movie.get_genre() == genre:
+                return True
+        return False
 
 
 
