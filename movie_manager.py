@@ -40,7 +40,7 @@ class Movie:
 class Person:
     def __init__(self, name):
         self.name = name
-
+        
     def get_name(self):
         return self.name
 
@@ -175,7 +175,3 @@ class MovieManager:
             if movie.get_genre() == genre:
                 return True
         return False
-
-
-
-

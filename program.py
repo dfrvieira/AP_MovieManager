@@ -1,7 +1,7 @@
-import movie_manager as m_m
+from movie_manager import MovieManager
 
 def main():
-    mm = m_m.MovieManager()
+    mm = MovieManager()
     while True:
         line = input()
         if not line:      # checks if input is empty line , if so
